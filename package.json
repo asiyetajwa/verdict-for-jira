@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "build:ui": "node ui/build.mjs",
     "preview": "node ui/build.mjs --preview",
-    "check": "tsc --noEmit && tsx --test test/*.test.ts && node ui/build.mjs"
+    "check": "tsc --noEmit && tsx --test test/*.test.ts && node ui/build.mjs",
+    "manifest:production": "node scripts/production-manifest.mjs"
   },
   "devDependencies": {
     "@forge/bridge": "^7.4.0",

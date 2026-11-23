@@ -1,0 +1,104 @@
+{
+ "run": "2026-11-23, Verdict for Jira development install on a Jira Cloud site, 40 seeded issues with known answers (seed/dataset.ts)",
+ "modes": {
+  "model": "the model through the Forge LLM API, with the full context Verdict gathers",
+  "model-text": "the same model given the issue text alone",
+  "rules": "the evidence floor alone, no model"
+ },
+ "results": {
+  "model-text": {
+   "n": 40,
+   "accuracy": "16/40",
+   "perClass": {
+    "DUPLICATE": "0/10",
+    "READY": "10/10",
+    "BLOCKED": "0/10",
+    "RISKY": "6/10"
+   },
+   "duplicatePrecision": "none predicted",
+   "citationsResolved": "42/42",
+   "fellBack": 0,
+   "retried": 0,
+   "medianSeconds": 3.7,
+   "misses": [
+    "TAL-41 expected DUPLICATE, got READY",
+    "TAL-42 expected DUPLICATE, got READY",
+    "TAL-43 expected DUPLICATE, got READY",
+    "TAL-44 expected DUPLICATE, got READY",
+    "TAL-45 expected DUPLICATE, got READY",
+    "TAL-46 expected DUPLICATE, got READY",
+    "TAL-47 expected DUPLICATE, got READY",
+    "TAL-48 expected DUPLICATE, got READY",
+    "TAL-49 expected DUPLICATE, got READY",
+    "TAL-50 expected DUPLICATE, got READY",
+    "TAL-51 expected BLOCKED, got READY",
+    "TAL-52 expected BLOCKED, got READY",
+    "TAL-53 expected BLOCKED, got READY",
+    "TAL-54 expected BLOCKED, got READY",
+    "TAL-55 expected BLOCKED, got READY",
+    "TAL-56 expected BLOCKED, got READY",
+    "TAL-57 expected BLOCKED, got READY",
+    "TAL-58 expected BLOCKED, got READY",
+    "TAL-59 expected BLOCKED, got READY",
+    "TAL-60 expected BLOCKED, got READY",
+    "TAL-66 expected RISKY, got READY",
+    "TAL-67 expected RISKY, got READY",
+    "TAL-68 expected RISKY, got READY",
+    "TAL-69 expected RISKY, got READY"
+   ]
+  },
+  "model": {
+   "n": 40,
+   "accuracy": "35/40",
+   "perClass": {
+    "DUPLICATE": "6/10",
+    "READY": "9/10",
+    "BLOCKED": "10/10",
+    "RISKY": "10/10"
+   },
+   "duplicatePrecision": "6/6",
+   "citationsResolved": "105/105",
+   "fellBack": 0,
+   "retried": 0,
+   "medianSeconds": 4.7,
+   "misses": [
+    "TAL-43 expected DUPLICATE, got RISKY",
+    "TAL-44 expected DUPLICATE, got RISKY",
+    "TAL-47 expected DUPLICATE, got RISKY",
+    "TAL-48 expected DUPLICATE, got READY",
+    "TAL-73 expected READY, got RISKY"
+   ]
+  },
+  "rules": {
+   "n": 40,
+   "accuracy": "26/40",
+   "perClass": {
+    "DUPLICATE": "0/10",
+    "READY": "9/10",
+    "BLOCKED": "10/10",
+    "RISKY": "7/10"
+   },
+   "duplicatePrecision": "none predicted",
+   "citationsResolved": "41/41",
+   "fellBack": 0,
+   "retried": 0,
+   "medianSeconds": 0.8,
+   "misses": [
+    "TAL-41 expected DUPLICATE, got RISKY",
+    "TAL-42 expected DUPLICATE, got READY",
+    "TAL-43 expected DUPLICATE, got READY",
+    "TAL-44 expected DUPLICATE, got READY",
+    "TAL-45 expected DUPLICATE, got READY",
+    "TAL-46 expected DUPLICATE, got READY",
+    "TAL-47 expected DUPLICATE, got RISKY",
+    "TAL-48 expected DUPLICATE, got READY",
+    "TAL-49 expected DUPLICATE, got READY",
+    "TAL-50 expected DUPLICATE, got READY",
+    "TAL-65 expected RISKY, got READY",
+    "TAL-66 expected RISKY, got READY",
+    "TAL-67 expected RISKY, got READY",
+    "TAL-73 expected READY, got RISKY"
+   ]
+  }
+ }
+}

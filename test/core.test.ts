@@ -165,3 +165,13 @@ test('the agent path refuses once, then posts the Risky fallback, and chains rec
   assert.equal((await verifyChain(store.chain)).valid, true);
   assert.equal(store.chain[1]?.body.verdict, 'BLOCKED');
 });
+
+test('an unreadable answer twice falls back with plain wording, not a parser message', async () => {
+  const broken: Decider = async () => {
+    throw new SyntaxError("Expected ',' or ']' after array element in JSON at position 700");
+  };
+  const d = await decide(seedContext('TAL-75'), broken);
+  assert.equal(d.fellBack, true);
+  assert.match(d.proposal.why, /could not be read, twice/);
+  assert.ok(!d.proposal.why.includes('position 700'));
+});

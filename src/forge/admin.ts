@@ -284,6 +284,33 @@ export async function adminTrigger(request: Req) {
         const c = (comments.json.comments as { id: string; renderedBody?: string; author?: { displayName?: string } }[] | undefined)?.[0];
         return reply(200, { receipt: l?.receipt, comment: c ? { id: c.id, author: c.author?.displayName, text: (c.renderedBody ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() } : null });
       }
+      case 'state': {
+        // What the panel shows for an issue, for the film's fixtures.
+        const key = q(request, 'issue') ?? '';
+        const { latestFor } = await import('./store');
+        const { verifyReceipt } = await import('../core/receipt');
+        const l = await latestFor(key);
+        if (!l) return reply(200, { issueKey: key, receipt: null });
+        const view = await kvs.get<{ cites: unknown[]; subjectTitle: string }>(`view:${l.receipt.hash}`);
+        return reply(200, { issueKey: key, receipt: l.receipt, check: await verifyReceipt(l.receipt), cites: view?.cites ?? [], subjectTitle: view?.subjectTitle ?? key });
+      }
+      case 'log': {
+        const { logFor, signingKeys } = await import('./store');
+        const { verifyChain } = await import('../core/receipt');
+        const chain = await logFor(PROJECT);
+        return reply(200, { project: PROJECT, check: await verifyChain(chain), publicKey: (await signingKeys()).publicRaw, receipts: chain.slice().reverse() });
+      }
+      case 'accept': {
+        // Records a human outcome on the latest receipt, as the panel's Accept or Reject would, signed by name.
+        const key = q(request, 'issue') ?? '';
+        const outcome = q(request, 'outcome') === 'rejected' ? 'rejected' : 'accepted';
+        const { latestFor, saveReceipt, signingKeys } = await import('./store');
+        const { signOutcome } = await import('../core/receipt');
+        const l = await latestFor(key);
+        if (!l || l.receipt.outcome) return reply(400, { error: 'no receipt, or an outcome is already recorded' });
+        await saveReceipt(l.key, await signOutcome(l.receipt, outcome, q(request, 'by') ?? 'Brian Simiyu', await signingKeys()));
+        return reply(200, { ok: true });
+      }
       case 'job':
         return reply(200, await kvs.get(`job:${q(request, 'issue') ?? ''}`));
       case 'report':

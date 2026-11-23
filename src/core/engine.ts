@@ -58,20 +58,24 @@ export function fallback(ctx: Context, failures: string[]): Proposal {
 export async function decide(ctx: Context, decider: Decider, resolve?: Resolver): Promise<Decision> {
   const floor = computeFloor(ctx);
   let feedback: string[] = [];
+  let unreadable = false;
   let last: CitationResult = { ok: false, checked: 0, resolved: 0, failures: [] };
   for (let attempt = 1; attempt <= 2; attempt++) {
     let p: Proposal;
     try {
       p = sanitize(await decider(ctx, floor, feedback));
     } catch (e) {
-      feedback = [`The proposal could not be read: ${e instanceof Error ? e.message : String(e)}`];
+      feedback = [`Your last answer could not be read (${e instanceof Error ? e.message : String(e)}). Answer again in the exact shape asked for.`];
+      unreadable = true;
       continue;
     }
+    unreadable = false;
     last = await checkCitations(ctx, floor, p, resolve);
     if (last.ok) return { proposal: p, floor, check: last, attempts: attempt, fellBack: false };
     feedback = last.failures;
   }
-  const p = fallback(ctx, feedback);
+  // A parser error is for the retry, not for the team: the posted fallback says plainly what happened.
+  const p = fallback(ctx, unreadable ? ['The answer it produced could not be read, twice.'] : feedback);
   const check = await checkCitations(ctx, { ...floor, allowed: ['RISKY'] }, p, resolve);
   return { proposal: p, floor, check, attempts: 2, fellBack: true };
 }

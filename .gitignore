@@ -4,3 +4,4 @@ dist/
 .forge/
 *.log
 static/preview/
+.forge-production/
