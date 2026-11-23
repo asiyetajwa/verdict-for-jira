@@ -19,7 +19,7 @@ export const FPS = 30;
 const OVERLAP = 6;
 // Voiceover starts a beat after its scene and leaves a beat of air after.
 export const VO_LEAD = 0.15;
-const VO_TAIL = 0.35;
+const VO_TAIL = 0.6; // with the lead and the dissolve, about half a second between lines
 
 export type SceneSpec<Id extends string> = {
   id: Id;

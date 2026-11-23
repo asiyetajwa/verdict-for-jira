@@ -255,15 +255,15 @@ export const DuplicateScene: S = () => (
   </AbsoluteFill>
 );
 
-const CITES: { text: string; state: 'ok' | 'bad' }[] = [
-  { text: 'TAL-15 blocks this issue, and is open', state: 'ok' },
-  { text: 'TAL-16 blocks TAL-15, and is open', state: 'ok' },
-  { text: 'TAL-404 blocks this issue', state: 'bad' },
+const CITES: { text: string; state: 'ok' | 'bad'; at: number }[] = [
+  { text: 'TAL-15 blocks this issue, and is open', state: 'ok', at: 30 },
+  { text: 'TAL-16 blocks TAL-15, and is open', state: 'ok', at: 90 },
+  { text: 'TAL-404 blocks this issue', state: 'bad', at: 210 },
 ];
 
 export const CheckScene: S = () => {
   const frame = useCurrentFrame();
-  const retry = fadeIn(frame, 240, 18);
+  const retry = fadeIn(frame, 320, 18);
   return (
     <AbsoluteFill>
       <Room dim={0.1} />
@@ -272,8 +272,8 @@ export const CheckScene: S = () => {
           <Tile style={{ padding: 40 }}>
             <div style={{ fontSize: 26, color: theme.ink3 }}>Citation check</div>
             {CITES.map((c, i) => {
-              const p = fadeIn(frame, 20 + i * 40);
-              const mark = fadeIn(frame, 50 + i * 40, 10);
+              const p = fadeIn(frame, c.at);
+              const mark = fadeIn(frame, c.at + 30, 10);
               const colour = c.state === 'ok' ? theme.go : theme.stop;
               return (
                 <div key={c.text} style={{ ...rise(p, 14), display: 'flex', alignItems: 'center', gap: 22, marginTop: 24, fontSize: 34 }}>
@@ -343,15 +343,15 @@ export const LogScene: S = () => {
   );
 };
 
-const RESULTS: { label: string; n: number; colour: string }[] = [
-  { label: 'The model, with the full context', n: 34, colour: theme.accent },
-  { label: 'Rules on their own', n: 26, colour: theme.ink3 },
-  { label: 'The model, with the issue text alone', n: 15, colour: '#4a4f59' },
+const RESULTS: { label: string; n: number; colour: string; at: number }[] = [
+  { label: 'The model, with the full context', n: 34, colour: theme.accent, at: 150 },
+  { label: 'The model, with the issue text alone', n: 15, colour: '#4a4f59', at: 250 },
+  { label: 'Rules on their own', n: 26, colour: theme.ink3, at: 320 },
 ];
 
 export const NumbersScene: S = () => {
   const frame = useCurrentFrame();
-  const extra = fadeIn(frame, 330, 18);
+  const extra = fadeIn(frame, 390, 18);
   return (
     <AbsoluteFill>
       <Room dim={0.12} />
@@ -360,7 +360,7 @@ export const NumbersScene: S = () => {
           <Tile style={{ padding: 48 }}>
             <div style={{ fontSize: 28, color: theme.ink3 }}>40 issues with known answers, run through the deployed app</div>
             {RESULTS.map((r, i) => {
-              const at = 70 + i * 70;
+              const at = r.at;
               const g = fadeIn(frame, at, 40);
               return (
                 <div key={r.label} style={{ marginTop: 34, ...rise(fadeIn(frame, at - 10), 12) }}>

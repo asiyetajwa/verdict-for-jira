@@ -1,0 +1,88 @@
+{
+  "voiceId": "nPczCjzI2devNBz1zQrb",
+  "modelId": "eleven_multilingual_v2",
+  "music": "music/verdict-bed.mp3",
+  "musicStart": 0,
+  "clips": [
+    {
+      "id": "hook",
+      "file": "voiceover/verdict/hook.mp3",
+      "seconds": 5.808594
+    },
+    {
+      "id": "twice",
+      "file": "voiceover/verdict/twice.mp3",
+      "seconds": 8.595351
+    },
+    {
+      "id": "chain",
+      "file": "voiceover/verdict/chain.mp3",
+      "seconds": 9.468231
+    },
+    {
+      "id": "decision",
+      "file": "voiceover/verdict/decision.mp3",
+      "seconds": 11.288503
+    },
+    {
+      "id": "trust",
+      "file": "voiceover/verdict/trust.mp3",
+      "seconds": 9.415102
+    },
+    {
+      "id": "title",
+      "file": "voiceover/verdict/title.mp3",
+      "seconds": 10.02517
+    },
+    {
+      "id": "reads",
+      "file": "voiceover/verdict/reads.mp3",
+      "seconds": 15.252063
+    },
+    {
+      "id": "blocked",
+      "file": "voiceover/verdict/blocked.mp3",
+      "seconds": 9.75356
+    },
+    {
+      "id": "risky",
+      "file": "voiceover/verdict/risky.mp3",
+      "seconds": 8.753832
+    },
+    {
+      "id": "duplicate",
+      "file": "voiceover/verdict/duplicate.mp3",
+      "seconds": 10.685147
+    },
+    {
+      "id": "check",
+      "file": "voiceover/verdict/check.mp3",
+      "seconds": 16.629093
+    },
+    {
+      "id": "receipt",
+      "file": "voiceover/verdict/receipt.mp3",
+      "seconds": 12.588821
+    },
+    {
+      "id": "log",
+      "file": "voiceover/verdict/log.mp3",
+      "seconds": 5.319796
+    },
+    {
+      "id": "numbers",
+      "file": "voiceover/verdict/numbers.mp3",
+      "seconds": 18.365714
+    },
+    {
+      "id": "where",
+      "file": "voiceover/verdict/where.mp3",
+      "seconds": 9.941746
+    },
+    {
+      "id": "close",
+      "file": "voiceover/verdict/close.mp3",
+      "seconds": 3.128073
+    }
+  ]
+}
