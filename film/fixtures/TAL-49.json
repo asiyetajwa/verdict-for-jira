@@ -1,0 +1,89 @@
+{
+ "issueKey": "TAL-49",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 2,
+    "resolved": 2
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-27",
+     "issue:TAL-3",
+     "issue:TAL-43",
+     "issue:TAL-9"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 0,
+     "similarity": 4
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "duplicate",
+     "cite": "issue:TAL-9",
+     "claim": "TAL-9 covers authenticator-app one-time codes with enrolment via QR code, plus recovery codes and admin enforcement. That includes everything TAL-49 asks for (time-based codes, enrolment, code at sign-in). It is in progress."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-49",
+     "claim": "TAL-49 asks for TOTP as a second sign-in step, with only two criteria: an enrolment flow and a code asked at sign-in."
+    }
+   ],
+   "issue": "TAL-49",
+   "issuedAt": "2026-11-23T17:17:29.679Z",
+   "prevHash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-PZHRXVF7",
+   "verdict": "DUPLICATE",
+   "why": "TAL-49 is already covered by TAL-9, which is in progress. Both add authenticator-app one-time codes with enrolment and a code check at sign-in, and TAL-9 also covers recovery codes and admin enforcement. Call: Duplicate.",
+   "wouldChange": [
+    "TAL-49 names work that TAL-9 does not cover, such as a different login surface or a non-authenticator-app method, which would make it Risky as a partial overlap.",
+    "TAL-9 is dropped or its scope is cut to exclude the sign-in code check, which would leave TAL-49 as Ready to Build."
+   ]
+  },
+  "hash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:18.451Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109"
+   },
+   "signature": "qDuBcloUfmfN7TTMrPbxFy5VJ6cD73aJtdv4SxUEb9nYwDYy9BnhT7+z6YN1YMh+4rerrHKq5zuUAwcmwojABw=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "HsqBNkM3NYXal8DrDHwOFq+oJKMb0HFrKoeRaxv7azv9mfm8CLhrBKkqwGzdm0pQ0hKTy6H+EP4bUuR12BErAQ=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "duplicate",
+   "claim": "TAL-9 covers authenticator-app one-time codes with enrolment via QR code, plus recovery codes and admin enforcement. That includes everything TAL-49 asks for (time-based codes, enrolment, code at sign-in). It is in progress.",
+   "id": "TAL-9",
+   "key": "issue:TAL-9",
+   "kind": "issue",
+   "label": "Two-factor authentication with authenticator apps",
+   "status": "In Progress",
+   "url": "https://incdribble.atlassian.net/browse/TAL-9"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-49 asks for TOTP as a second sign-in step, with only two criteria: an enrolment flow and a code asked at sign-in.",
+   "id": "TAL-49",
+   "key": "issue:TAL-49",
+   "kind": "issue",
+   "label": "TOTP codes at login",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-49"
+  }
+ ],
+ "subjectTitle": "TOTP codes at login"
+}

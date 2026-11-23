@@ -1,0 +1,90 @@
+{
+ "issueKey": "TAL-65",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 2,
+    "resolved": 2
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-28",
+     "issue:TAL-41",
+     "issue:TAL-53",
+     "issue:TAL-69",
+     "issue:TAL-79",
+     "page:589825"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 1,
+     "similarity": 5
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "decision",
+     "cite": "page:589825",
+     "claim": "The final decision from Security and Payments says Tally never stores card numbers or CVCs. Saved cards must use Stripe saved payment methods. This contradicts TAL-65."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-65",
+     "claim": "TAL-65 has acceptance criteria, but they require saving the card number after the first payment, which is the behavior the decision forbids."
+    }
+   ],
+   "issue": "TAL-65",
+   "issuedAt": "2026-11-23T17:17:37.508Z",
+   "prevHash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-PWYDDW1O",
+   "verdict": "RISKY",
+   "why": "TAL-65 asks to store card numbers, but the final decision page Decision: we never store card numbers says Tally keeps only the Stripe payment method token. Building it as written would break that decision.",
+   "wouldChange": [
+    "Rewrite TAL-65 to use Stripe saved payment methods and store only the payment method token, in line with the decision page.",
+    "Security and Payments formally reverse or amend the decision page Decision: we never store card numbers."
+   ]
+  },
+  "hash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:20.077Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a"
+   },
+   "signature": "8FOrFr8JPIt/GrCL0AMDcopDb4TDUa0/xVzXA31cfLSZK5R+U5MGQ2LfTgJ2ka7N2DSAUyIPj0i8yNmSyQrRCA=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "grqPv/Bj1x+xzu3F5/puU3ksT+vQ8lWPEKTJxZcX88TrdR24q/AcaIxH67L2+rCaVdmKQI5IQBJ7YMOGkpBYDQ=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "decision",
+   "claim": "The final decision from Security and Payments says Tally never stores card numbers or CVCs. Saved cards must use Stripe saved payment methods. This contradicts TAL-65.",
+   "id": "589825",
+   "key": "page:589825",
+   "kind": "page",
+   "label": "Decision: we never store card numbers",
+   "url": "https://incdribble.atlassian.net/wiki/spaces/TALLY/pages/589825/Decision+we+never+store+card+numbers"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-65 has acceptance criteria, but they require saving the card number after the first payment, which is the behavior the decision forbids.",
+   "id": "TAL-65",
+   "key": "issue:TAL-65",
+   "kind": "issue",
+   "label": "Store card numbers for one-click pay",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-65"
+  }
+ ],
+ "subjectTitle": "Store card numbers for one-click pay"
+}

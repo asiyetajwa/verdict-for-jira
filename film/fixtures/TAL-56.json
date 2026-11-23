@@ -1,0 +1,106 @@
+{
+ "issueKey": "TAL-56",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 3,
+    "resolved": 3
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-15",
+     "issue:TAL-16",
+     "issue:TAL-30",
+     "issue:TAL-31",
+     "issue:TAL-70",
+     "issue:TAL-75"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 2,
+     "similarity": 6
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "blocker",
+     "cite": "issue:TAL-15",
+     "claim": "TAL-15, the push notification service, blocks TAL-56 and is still in Backlog."
+    },
+    {
+     "asserts": "blocker",
+     "cite": "issue:TAL-16",
+     "claim": "TAL-16, the Apple developer account and push certificate, blocks TAL-15 and is still open. This holds up TAL-56 indirectly."
+    },
+    {
+     "asserts": "mentioned",
+     "cite": "issue:TAL-31",
+     "claim": "TAL-31 is a Slack notification for paid invoices and is already Done. It overlaps only in part, so it is not a duplicate."
+    }
+   ],
+   "issue": "TAL-56",
+   "issuedAt": "2026-11-23T17:17:49.182Z",
+   "prevHash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-1NQ06WIP",
+   "verdict": "BLOCKED",
+   "why": "TAL-56 is Blocked because TAL-15 (Push notification service) is still in Backlog, and TAL-15 is itself waiting on TAL-16 (Apple developer account for push certificates), which is also open. The issue has a clear description and acceptance criteria, so the blockers are the only problem.",
+   "wouldChange": [
+    "TAL-15 is done, which needs TAL-16 done first.",
+    "The link from TAL-15 to TAL-56 is removed, for example if push delivery is built inside TAL-56."
+   ]
+  },
+  "hash": "2be11ee24c6d4ac811ed34babec8e9988b97dab658f9fd48cd7b9a5d9df8790d",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:21.753Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "2be11ee24c6d4ac811ed34babec8e9988b97dab658f9fd48cd7b9a5d9df8790d"
+   },
+   "signature": "HL6LATLaAT3V+lwUtljTMwQyJqmRmSjAeR6D4tLLhpsqR8qYcNzFoatdrlm0RB+v92HmlR1pzguPi41caS8UCA=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "sluwKjZSfovu4FHI0T5qSuCnB1epWc4309pBQ69ggZVFTAu4Yj8ky2aYNJ2B17h4tevxCQIplPM0bA2vdwN+Aw=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "blocker",
+   "claim": "TAL-15, the push notification service, blocks TAL-56 and is still in Backlog.",
+   "id": "TAL-15",
+   "key": "issue:TAL-15",
+   "kind": "issue",
+   "label": "Push notification service",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-15"
+  },
+  {
+   "asserts": "blocker",
+   "claim": "TAL-16, the Apple developer account and push certificate, blocks TAL-15 and is still open. This holds up TAL-56 indirectly.",
+   "id": "TAL-16",
+   "key": "issue:TAL-16",
+   "kind": "issue",
+   "label": "Apple developer account for push certificates",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-16"
+  },
+  {
+   "asserts": "mentioned",
+   "claim": "TAL-31 is a Slack notification for paid invoices and is already Done. It overlaps only in part, so it is not a duplicate.",
+   "id": "TAL-31",
+   "key": "issue:TAL-31",
+   "kind": "issue",
+   "label": "Slack notification when an invoice is paid",
+   "status": "Done",
+   "url": "https://incdribble.atlassian.net/browse/TAL-31"
+  }
+ ],
+ "subjectTitle": "Push notification when an invoice is paid"
+}

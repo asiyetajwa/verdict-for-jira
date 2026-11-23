@@ -33,7 +33,12 @@ async function state() {
   return { issueKey: issue, receipt: latest, check: await verifyReceipt(latest), cites: view, subjectTitle: seedContext(issue).subject.title };
 }
 
+// A fixture captured from the live site (the film uses real receipts): window.__VERDICT_FIXTURE__ = { state?, log? }.
+const fixture = (globalThis as { __VERDICT_FIXTURE__?: { state?: unknown; log?: unknown } }).__VERDICT_FIXTURE__;
+
 export async function invoke<T>(name: string, payload?: Record<string, unknown>): Promise<T> {
+  if (fixture && name === 'getState' && fixture.state) return fixture.state as T;
+  if (fixture && name === 'getLog' && fixture.log) return fixture.log as T;
   if (name === 'getState') {
     if (new URLSearchParams(location.search).has('ran')) {
       const x = await runOn(issue, null);

@@ -1,0 +1,453 @@
+{
+ "project": "TAL",
+ "check": {
+  "valid": true,
+  "reason": "All 7 receipts verify and the chain is unbroken."
+ },
+ "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+ "receipts": [
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 3,
+     "resolved": 3
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-15",
+      "issue:TAL-16",
+      "issue:TAL-30",
+      "issue:TAL-31",
+      "issue:TAL-70",
+      "issue:TAL-75"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 2,
+      "similarity": 6
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "blocker",
+      "cite": "issue:TAL-15",
+      "claim": "TAL-15, the push notification service, blocks TAL-56 and is still in Backlog."
+     },
+     {
+      "asserts": "blocker",
+      "cite": "issue:TAL-16",
+      "claim": "TAL-16, the Apple developer account and push certificate, blocks TAL-15 and is still open. This holds up TAL-56 indirectly."
+     },
+     {
+      "asserts": "mentioned",
+      "cite": "issue:TAL-31",
+      "claim": "TAL-31 is a Slack notification for paid invoices and is already Done. It overlaps only in part, so it is not a duplicate."
+     }
+    ],
+    "issue": "TAL-56",
+    "issuedAt": "2026-11-23T17:17:49.182Z",
+    "prevHash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-1NQ06WIP",
+    "verdict": "BLOCKED",
+    "why": "TAL-56 is Blocked because TAL-15 (Push notification service) is still in Backlog, and TAL-15 is itself waiting on TAL-16 (Apple developer account for push certificates), which is also open. The issue has a clear description and acceptance criteria, so the blockers are the only problem.",
+    "wouldChange": [
+     "TAL-15 is done, which needs TAL-16 done first.",
+     "The link from TAL-15 to TAL-56 is removed, for example if push delivery is built inside TAL-56."
+    ]
+   },
+   "hash": "2be11ee24c6d4ac811ed34babec8e9988b97dab658f9fd48cd7b9a5d9df8790d",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:21.753Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "2be11ee24c6d4ac811ed34babec8e9988b97dab658f9fd48cd7b9a5d9df8790d"
+    },
+    "signature": "HL6LATLaAT3V+lwUtljTMwQyJqmRmSjAeR6D4tLLhpsqR8qYcNzFoatdrlm0RB+v92HmlR1pzguPi41caS8UCA=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "sluwKjZSfovu4FHI0T5qSuCnB1epWc4309pBQ69ggZVFTAu4Yj8ky2aYNJ2B17h4tevxCQIplPM0bA2vdwN+Aw=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 2,
+     "resolved": 2
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-28",
+      "issue:TAL-41",
+      "issue:TAL-53",
+      "issue:TAL-69",
+      "issue:TAL-79",
+      "page:589825"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 1,
+      "similarity": 5
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "decision",
+      "cite": "page:589825",
+      "claim": "The final decision from Security and Payments says Tally never stores card numbers or CVCs. Saved cards must use Stripe saved payment methods. This contradicts TAL-65."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-65",
+      "claim": "TAL-65 has acceptance criteria, but they require saving the card number after the first payment, which is the behavior the decision forbids."
+     }
+    ],
+    "issue": "TAL-65",
+    "issuedAt": "2026-11-23T17:17:37.508Z",
+    "prevHash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-PWYDDW1O",
+    "verdict": "RISKY",
+    "why": "TAL-65 asks to store card numbers, but the final decision page Decision: we never store card numbers says Tally keeps only the Stripe payment method token. Building it as written would break that decision.",
+    "wouldChange": [
+     "Rewrite TAL-65 to use Stripe saved payment methods and store only the payment method token, in line with the decision page.",
+     "Security and Payments formally reverse or amend the decision page Decision: we never store card numbers."
+    ]
+   },
+   "hash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:20.077Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "8291a33329850d4bece6efc4154800acbdbf736b8e240faac6b971e8221de04a"
+    },
+    "signature": "8FOrFr8JPIt/GrCL0AMDcopDb4TDUa0/xVzXA31cfLSZK5R+U5MGQ2LfTgJ2ka7N2DSAUyIPj0i8yNmSyQrRCA=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "grqPv/Bj1x+xzu3F5/puU3ksT+vQ8lWPEKTJxZcX88TrdR24q/AcaIxH67L2+rCaVdmKQI5IQBJ7YMOGkpBYDQ=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 2,
+     "resolved": 2
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-27",
+      "issue:TAL-3",
+      "issue:TAL-43",
+      "issue:TAL-9"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 0,
+      "similarity": 4
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "duplicate",
+      "cite": "issue:TAL-9",
+      "claim": "TAL-9 covers authenticator-app one-time codes with enrolment via QR code, plus recovery codes and admin enforcement. That includes everything TAL-49 asks for (time-based codes, enrolment, code at sign-in). It is in progress."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-49",
+      "claim": "TAL-49 asks for TOTP as a second sign-in step, with only two criteria: an enrolment flow and a code asked at sign-in."
+     }
+    ],
+    "issue": "TAL-49",
+    "issuedAt": "2026-11-23T17:17:29.679Z",
+    "prevHash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-PZHRXVF7",
+    "verdict": "DUPLICATE",
+    "why": "TAL-49 is already covered by TAL-9, which is in progress. Both add authenticator-app one-time codes with enrolment and a code check at sign-in, and TAL-9 also covers recovery codes and admin enforcement. Call: Duplicate.",
+    "wouldChange": [
+     "TAL-49 names work that TAL-9 does not cover, such as a different login surface or a non-authenticator-app method, which would make it Risky as a partial overlap.",
+     "TAL-9 is dropped or its scope is cut to exclude the sign-in code check, which would leave TAL-49 as Ready to Build."
+    ]
+   },
+   "hash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:18.451Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "d53d41bee1115be7d7e2e53ed60c55f7472c3bd4a8c8fadf598e456a656e1109"
+    },
+    "signature": "qDuBcloUfmfN7TTMrPbxFy5VJ6cD73aJtdv4SxUEb9nYwDYy9BnhT7+z6YN1YMh+4rerrHKq5zuUAwcmwojABw=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "HsqBNkM3NYXal8DrDHwOFq+oJKMb0HFrKoeRaxv7azv9mfm8CLhrBKkqwGzdm0pQ0hKTy6H+EP4bUuR12BErAQ=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 3,
+     "resolved": 3
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-24",
+      "issue:TAL-25",
+      "issue:TAL-59",
+      "issue:TAL-64",
+      "issue:TAL-78",
+      "issue:TAL-8"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 0,
+      "similarity": 6
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "reverted",
+      "cite": "issue:TAL-24",
+      "claim": "TAL-24 cached computed invoice totals to speed up the list page, shipped, then was reverted after totals went stale when line items changed."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-68",
+      "claim": "TAL-68 has acceptance criteria (totals served from cache, list under one second) but none cover invalidation when line items change."
+     },
+     {
+      "asserts": "mentioned",
+      "cite": "issue:TAL-64",
+      "claim": "TAL-64 covers the same slow invoice list problem (6 seconds for over 10,000 invoices) and is still open, so it overlaps only in goal."
+     }
+    ],
+    "issue": "TAL-68",
+    "issuedAt": "2026-11-23T17:17:18.127Z",
+    "prevHash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-DUIP9W1L",
+    "verdict": "RISKY",
+    "why": "Risky: TAL-24 cached the same invoice totals in memcached and was reverted because totals went stale when line items changed. TAL-68 swaps in Redis and doesn't say how it avoids the same staleness.",
+    "wouldChange": [
+     "Add an acceptance criterion and a plan for invalidating cached totals when line items change, which addresses the reason TAL-24 was reverted.",
+     "Confirm the Redis approach differs from TAL-24 in a way that prevents stale totals, then it can move to Ready to Build."
+    ]
+   },
+   "hash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:23.421Z",
+     "by": "Brian Simiyu",
+     "outcome": "rejected",
+     "receiptHash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69"
+    },
+    "signature": "cG71XjC+yw59poHEVRdZxpLIuTJPQuyxMAv5O6FvaupN3Sh2odzC2uYhpQ9wE3LTjx7BOcOXx2a/87BO3t78Bg=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "DxGRSBv7zHrvtunDKCkrK56JlUt8fGl9wXptwkZMiGyV+UYcDQijKmUCt7Iow7XC/6X4LSoMiGJz5CZhpUHECQ=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 3,
+     "resolved": 3
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-14",
+      "issue:TAL-2"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 0,
+      "similarity": 2
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "duplicate",
+      "cite": "issue:TAL-2",
+      "claim": "TAL-2 is an earlier issue that queues dropped Stripe events when the webhook endpoint fails and retries them with exponential backoff. This is the same work as TAL-42."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-42",
+      "claim": "TAL-42 asks to keep Stripe events lost during an outage and replay them automatically. This is the same problem and fix as TAL-2."
+     },
+     {
+      "asserts": "mentioned",
+      "cite": "issue:TAL-14",
+      "claim": "TAL-14 is an audit log pipeline that only shares the word event. It is not related work."
+     }
+    ],
+    "issue": "TAL-42",
+    "issuedAt": "2026-11-23T17:17:08.175Z",
+    "prevHash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-13KKN6L1",
+    "verdict": "DUPLICATE",
+    "why": "This is a Duplicate of TAL-2, which already covers storing Stripe events that fail while our endpoint is down and retrying them automatically. Both acceptance criteria in TAL-42 (no event lost, automatic replay) are covered by TAL-2's criteria.",
+    "wouldChange": [
+     "TAL-42 needs something TAL-2 does not cover, such as replaying events after an outage longer than 24 hours or a manual replay tool. That would make it Risky because the overlap is only partial.",
+     "TAL-2 is closed as won't do or rejected. TAL-42 could then be Ready to Build."
+    ]
+   },
+   "hash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:16.796Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9"
+    },
+    "signature": "RVkmnWNPY84FeHmtmyG2NvZwN5K6Ft3M63IyYVDEODVCENw72BCNIw+n0MlMTVMT98Elshl1WyFF2ynm1h9gBA=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "iFgwBtAM7gQY+wloiG4aDLO9LO0biqXowDWkJxfQRjfk6/ACMtWY9e6G7T2h1fImXklrMee6aJei5R/IyKDZBw=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 3,
+     "resolved": 3
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-12",
+      "issue:TAL-51",
+      "issue:TAL-63",
+      "issue:TAL-66",
+      "issue:TAL-69",
+      "issue:TAL-72",
+      "page:622593"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 1,
+      "similarity": 6
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-74",
+      "claim": "TAL-74 has a description and three acceptance criteria: full or partial credit, credit note linked to the invoice, invoice balance updated."
+     },
+     {
+      "asserts": "mentioned",
+      "cite": "page:622593",
+      "claim": "The decision page Decision: sent invoices are immutable says mistakes on sent invoices are corrected by issuing a credit note, which matches this issue."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-69",
+      "claim": "TAL-69 only exports invoices and credit notes as CSV. It is related but does not cover issuing credit notes, so it is not a duplicate."
+     }
+    ],
+    "issue": "TAL-74",
+    "issuedAt": "2026-11-23T17:16:55.886Z",
+    "prevHash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f",
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-1471V911",
+    "verdict": "READY",
+    "why": "TAL-74 has a description and clear acceptance criteria, and nothing linked blocks it. The decision page Decision: sent invoices are immutable agrees with it, because it says mistakes on sent invoices are fixed by issuing a credit note.",
+    "wouldChange": [
+     "A linked issue that must ship first, such as an unresolved credit note data model, would make this Blocked.",
+     "An earlier issue that already covers issuing credit notes from sent invoices would make this a Duplicate."
+    ]
+   },
+   "hash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:15.079Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e"
+    },
+    "signature": "i0/MoTsLsEACD3dMaMwz4IImqOOCRCs6xsNVEdSMr4Cdd4FFm/L33dIFz7wDtMB3aNcpeefN0t91MQ4RK4bRAw=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "8YpD4GGgrvU5KwuKP5Qq9rBVc/pmCZKG6r89rEi7tK61j8rY44KgPDyFlDBm+bkR6wbrrnKBWSIrH5zPrndFAg=="
+  },
+  {
+   "body": {
+    "citationCheck": {
+     "attempts": 1,
+     "checked": 2,
+     "resolved": 2
+    },
+    "context": {
+     "consulted": [
+      "issue:TAL-11",
+      "issue:TAL-41",
+      "issue:TAL-66",
+      "issue:TAL-67",
+      "issue:TAL-7",
+      "issue:TAL-74",
+      "issue:TAL-80"
+     ],
+     "counts": {
+      "graph": 0,
+      "jira": 1,
+      "similarity": 6
+     },
+     "graphUnavailable": true
+    },
+    "decidedBy": "the model, through the Forge LLM API",
+    "evidence": [
+     {
+      "asserts": "blocker",
+      "cite": "issue:TAL-11",
+      "claim": "TAL-11 blocks TAL-51 and is still In Progress, not done."
+     },
+     {
+      "asserts": "open",
+      "cite": "issue:TAL-51",
+      "claim": "TAL-51 has a description and acceptance criteria, so the blocker is the only gap."
+     }
+    ],
+    "issue": "TAL-51",
+    "issuedAt": "2026-11-23T17:16:46.097Z",
+    "prevHash": null,
+    "product": "Verdict for Jira",
+    "receiptId": "VRD-R-IQ2JQJY8",
+    "verdict": "BLOCKED",
+    "why": "TAL-51 is Blocked because TAL-11, the scheduler service for timed jobs, is still In Progress and monthly sending depends on it. The issue has a clear description and acceptance criteria, and no similar issue overlaps enough to call it a duplicate.",
+    "wouldChange": [
+     "TAL-11 is resolved and shipped to Done, which would make TAL-51 Ready to Build.",
+     "The link between TAL-51 and TAL-11 is removed because the scheduler is not actually needed."
+    ]
+   },
+   "hash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f",
+   "outcome": {
+    "body": {
+     "at": "2026-11-23T17:21:13.430Z",
+     "by": "Brian Simiyu",
+     "outcome": "accepted",
+     "receiptHash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f"
+    },
+    "signature": "71tlkLpikKyeTGqQtnp779zjKpEnddxCZQovQl8t7oZ7pmWIrInsBLP0O//RRcU19IXNfjwZyjt0amYIKq4ZDg=="
+   },
+   "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+   "signature": "lb1WBenkTEfnfuSLjn8CuvaUsfyiXgXfYDsOn4x+Y/RkbAP6AcpnX3A3O49/rStE2A2HpSU1EDE+bP33obL+CQ=="
+  }
+ ]
+}

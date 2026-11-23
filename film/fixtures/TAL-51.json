@@ -1,0 +1,92 @@
+{
+ "issueKey": "TAL-51",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 2,
+    "resolved": 2
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-11",
+     "issue:TAL-41",
+     "issue:TAL-66",
+     "issue:TAL-67",
+     "issue:TAL-7",
+     "issue:TAL-74",
+     "issue:TAL-80"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 1,
+     "similarity": 6
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "blocker",
+     "cite": "issue:TAL-11",
+     "claim": "TAL-11 blocks TAL-51 and is still In Progress, not done."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-51",
+     "claim": "TAL-51 has a description and acceptance criteria, so the blocker is the only gap."
+    }
+   ],
+   "issue": "TAL-51",
+   "issuedAt": "2026-11-23T17:16:46.097Z",
+   "prevHash": null,
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-IQ2JQJY8",
+   "verdict": "BLOCKED",
+   "why": "TAL-51 is Blocked because TAL-11, the scheduler service for timed jobs, is still In Progress and monthly sending depends on it. The issue has a clear description and acceptance criteria, and no similar issue overlaps enough to call it a duplicate.",
+   "wouldChange": [
+    "TAL-11 is resolved and shipped to Done, which would make TAL-51 Ready to Build.",
+    "The link between TAL-51 and TAL-11 is removed because the scheduler is not actually needed."
+   ]
+  },
+  "hash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:13.430Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f"
+   },
+   "signature": "71tlkLpikKyeTGqQtnp779zjKpEnddxCZQovQl8t7oZ7pmWIrInsBLP0O//RRcU19IXNfjwZyjt0amYIKq4ZDg=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "lb1WBenkTEfnfuSLjn8CuvaUsfyiXgXfYDsOn4x+Y/RkbAP6AcpnX3A3O49/rStE2A2HpSU1EDE+bP33obL+CQ=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "blocker",
+   "claim": "TAL-11 blocks TAL-51 and is still In Progress, not done.",
+   "id": "TAL-11",
+   "key": "issue:TAL-11",
+   "kind": "issue",
+   "label": "Scheduler service for timed jobs",
+   "status": "In Progress",
+   "url": "https://incdribble.atlassian.net/browse/TAL-11"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-51 has a description and acceptance criteria, so the blocker is the only gap.",
+   "id": "TAL-51",
+   "key": "issue:TAL-51",
+   "kind": "issue",
+   "label": "Recurring invoices on a monthly schedule",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-51"
+  }
+ ],
+ "subjectTitle": "Recurring invoices on a monthly schedule"
+}

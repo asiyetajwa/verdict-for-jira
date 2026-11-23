@@ -1,0 +1,106 @@
+{
+ "issueKey": "TAL-68",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 3,
+    "resolved": 3
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-24",
+     "issue:TAL-25",
+     "issue:TAL-59",
+     "issue:TAL-64",
+     "issue:TAL-78",
+     "issue:TAL-8"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 0,
+     "similarity": 6
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "reverted",
+     "cite": "issue:TAL-24",
+     "claim": "TAL-24 cached computed invoice totals to speed up the list page, shipped, then was reverted after totals went stale when line items changed."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-68",
+     "claim": "TAL-68 has acceptance criteria (totals served from cache, list under one second) but none cover invalidation when line items change."
+    },
+    {
+     "asserts": "mentioned",
+     "cite": "issue:TAL-64",
+     "claim": "TAL-64 covers the same slow invoice list problem (6 seconds for over 10,000 invoices) and is still open, so it overlaps only in goal."
+    }
+   ],
+   "issue": "TAL-68",
+   "issuedAt": "2026-11-23T17:17:18.127Z",
+   "prevHash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-DUIP9W1L",
+   "verdict": "RISKY",
+   "why": "Risky: TAL-24 cached the same invoice totals in memcached and was reverted because totals went stale when line items changed. TAL-68 swaps in Redis and doesn't say how it avoids the same staleness.",
+   "wouldChange": [
+    "Add an acceptance criterion and a plan for invalidating cached totals when line items change, which addresses the reason TAL-24 was reverted.",
+    "Confirm the Redis approach differs from TAL-24 in a way that prevents stale totals, then it can move to Ready to Build."
+   ]
+  },
+  "hash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:23.421Z",
+    "by": "Brian Simiyu",
+    "outcome": "rejected",
+    "receiptHash": "3b0d861be21f4a9da618c30266f962197694fdf4335e3d759454335b64889c69"
+   },
+   "signature": "cG71XjC+yw59poHEVRdZxpLIuTJPQuyxMAv5O6FvaupN3Sh2odzC2uYhpQ9wE3LTjx7BOcOXx2a/87BO3t78Bg=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "DxGRSBv7zHrvtunDKCkrK56JlUt8fGl9wXptwkZMiGyV+UYcDQijKmUCt7Iow7XC/6X4LSoMiGJz5CZhpUHECQ=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and rejected outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "reverted",
+   "claim": "TAL-24 cached computed invoice totals to speed up the list page, shipped, then was reverted after totals went stale when line items changed.",
+   "id": "TAL-24",
+   "key": "issue:TAL-24",
+   "kind": "issue",
+   "label": "Cache invoice totals in memcached",
+   "status": "Done",
+   "url": "https://incdribble.atlassian.net/browse/TAL-24"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-68 has acceptance criteria (totals served from cache, list under one second) but none cover invalidation when line items change.",
+   "id": "TAL-68",
+   "key": "issue:TAL-68",
+   "kind": "issue",
+   "label": "Cache invoice totals in Redis",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-68"
+  },
+  {
+   "asserts": "mentioned",
+   "claim": "TAL-64 covers the same slow invoice list problem (6 seconds for over 10,000 invoices) and is still open, so it overlaps only in goal.",
+   "id": "TAL-64",
+   "key": "issue:TAL-64",
+   "kind": "issue",
+   "label": "Speed up the invoice list page",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-64"
+  }
+ ],
+ "subjectTitle": "Cache invoice totals in Redis"
+}

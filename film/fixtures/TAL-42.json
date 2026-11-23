@@ -1,0 +1,102 @@
+{
+ "issueKey": "TAL-42",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 3,
+    "resolved": 3
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-14",
+     "issue:TAL-2"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 0,
+     "similarity": 2
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "duplicate",
+     "cite": "issue:TAL-2",
+     "claim": "TAL-2 is an earlier issue that queues dropped Stripe events when the webhook endpoint fails and retries them with exponential backoff. This is the same work as TAL-42."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-42",
+     "claim": "TAL-42 asks to keep Stripe events lost during an outage and replay them automatically. This is the same problem and fix as TAL-2."
+    },
+    {
+     "asserts": "mentioned",
+     "cite": "issue:TAL-14",
+     "claim": "TAL-14 is an audit log pipeline that only shares the word event. It is not related work."
+    }
+   ],
+   "issue": "TAL-42",
+   "issuedAt": "2026-11-23T17:17:08.175Z",
+   "prevHash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-13KKN6L1",
+   "verdict": "DUPLICATE",
+   "why": "This is a Duplicate of TAL-2, which already covers storing Stripe events that fail while our endpoint is down and retrying them automatically. Both acceptance criteria in TAL-42 (no event lost, automatic replay) are covered by TAL-2's criteria.",
+   "wouldChange": [
+    "TAL-42 needs something TAL-2 does not cover, such as replaying events after an outage longer than 24 hours or a manual replay tool. That would make it Risky because the overlap is only partial.",
+    "TAL-2 is closed as won't do or rejected. TAL-42 could then be Ready to Build."
+   ]
+  },
+  "hash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:16.796Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "910e48609c68d8df7fb87dab12ae046573111b8a8b4e286ca3dbd65769833ab9"
+   },
+   "signature": "RVkmnWNPY84FeHmtmyG2NvZwN5K6Ft3M63IyYVDEODVCENw72BCNIw+n0MlMTVMT98Elshl1WyFF2ynm1h9gBA=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "iFgwBtAM7gQY+wloiG4aDLO9LO0biqXowDWkJxfQRjfk6/ACMtWY9e6G7T2h1fImXklrMee6aJei5R/IyKDZBw=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "duplicate",
+   "claim": "TAL-2 is an earlier issue that queues dropped Stripe events when the webhook endpoint fails and retries them with exponential backoff. This is the same work as TAL-42.",
+   "id": "TAL-2",
+   "key": "issue:TAL-2",
+   "kind": "issue",
+   "label": "Retry failed Stripe webhook deliveries with backoff",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-2"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-42 asks to keep Stripe events lost during an outage and replay them automatically. This is the same problem and fix as TAL-2.",
+   "id": "TAL-42",
+   "key": "issue:TAL-42",
+   "kind": "issue",
+   "label": "Payment events go missing when our endpoint is down",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-42"
+  },
+  {
+   "asserts": "mentioned",
+   "claim": "TAL-14 is an audit log pipeline that only shares the word event. It is not related work.",
+   "id": "TAL-14",
+   "key": "issue:TAL-14",
+   "kind": "issue",
+   "label": "Audit log event pipeline",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-14"
+  }
+ ],
+ "subjectTitle": "Payment events go missing when our endpoint is down"
+}

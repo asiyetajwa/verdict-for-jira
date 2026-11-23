@@ -1,0 +1,106 @@
+{
+ "issueKey": "TAL-74",
+ "receipt": {
+  "body": {
+   "citationCheck": {
+    "attempts": 1,
+    "checked": 3,
+    "resolved": 3
+   },
+   "context": {
+    "consulted": [
+     "issue:TAL-12",
+     "issue:TAL-51",
+     "issue:TAL-63",
+     "issue:TAL-66",
+     "issue:TAL-69",
+     "issue:TAL-72",
+     "page:622593"
+    ],
+    "counts": {
+     "graph": 0,
+     "jira": 1,
+     "similarity": 6
+    },
+    "graphUnavailable": true
+   },
+   "decidedBy": "the model, through the Forge LLM API",
+   "evidence": [
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-74",
+     "claim": "TAL-74 has a description and three acceptance criteria: full or partial credit, credit note linked to the invoice, invoice balance updated."
+    },
+    {
+     "asserts": "mentioned",
+     "cite": "page:622593",
+     "claim": "The decision page Decision: sent invoices are immutable says mistakes on sent invoices are corrected by issuing a credit note, which matches this issue."
+    },
+    {
+     "asserts": "open",
+     "cite": "issue:TAL-69",
+     "claim": "TAL-69 only exports invoices and credit notes as CSV. It is related but does not cover issuing credit notes, so it is not a duplicate."
+    }
+   ],
+   "issue": "TAL-74",
+   "issuedAt": "2026-11-23T17:16:55.886Z",
+   "prevHash": "4abc920682fa1d361771686ec1b507e4602fb05c8d37c62f4b61059a6dad1a4f",
+   "product": "Verdict for Jira",
+   "receiptId": "VRD-R-1471V911",
+   "verdict": "READY",
+   "why": "TAL-74 has a description and clear acceptance criteria, and nothing linked blocks it. The decision page Decision: sent invoices are immutable agrees with it, because it says mistakes on sent invoices are fixed by issuing a credit note.",
+   "wouldChange": [
+    "A linked issue that must ship first, such as an unresolved credit note data model, would make this Blocked.",
+    "An earlier issue that already covers issuing credit notes from sent invoices would make this a Duplicate."
+   ]
+  },
+  "hash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e",
+  "outcome": {
+   "body": {
+    "at": "2026-11-23T17:21:15.079Z",
+    "by": "Brian Simiyu",
+    "outcome": "accepted",
+    "receiptHash": "791957632e1620487d94c3008ca7a5ea93928db7d54407967ca9a4899c1bee2e"
+   },
+   "signature": "i0/MoTsLsEACD3dMaMwz4IImqOOCRCs6xsNVEdSMr4Cdd4FFm/L33dIFz7wDtMB3aNcpeefN0t91MQ4RK4bRAw=="
+  },
+  "publicKey": "f2Io+cmx157K8rG2d/j7NMtjRfikrL8cf6Nda3vNu/g=",
+  "signature": "8YpD4GGgrvU5KwuKP5Qq9rBVc/pmCZKG6r89rEi7tK61j8rY44KgPDyFlDBm+bkR6wbrrnKBWSIrH5zPrndFAg=="
+ },
+ "check": {
+  "valid": true,
+  "reason": "Verdict and accepted outcome both verify."
+ },
+ "cites": [
+  {
+   "asserts": "open",
+   "claim": "TAL-74 has a description and three acceptance criteria: full or partial credit, credit note linked to the invoice, invoice balance updated.",
+   "id": "TAL-74",
+   "key": "issue:TAL-74",
+   "kind": "issue",
+   "label": "Issue a credit note from a sent invoice",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-74"
+  },
+  {
+   "asserts": "mentioned",
+   "claim": "The decision page Decision: sent invoices are immutable says mistakes on sent invoices are corrected by issuing a credit note, which matches this issue.",
+   "id": "622593",
+   "key": "page:622593",
+   "kind": "page",
+   "label": "Decision: sent invoices are immutable",
+   "url": "https://incdribble.atlassian.net/wiki/spaces/TALLY/pages/622593/Decision+sent+invoices+are+immutable"
+  },
+  {
+   "asserts": "open",
+   "claim": "TAL-69 only exports invoices and credit notes as CSV. It is related but does not cover issuing credit notes, so it is not a duplicate.",
+   "id": "TAL-69",
+   "key": "issue:TAL-69",
+   "kind": "issue",
+   "label": "Export invoices and credit notes as CSV",
+   "status": "Backlog",
+   "url": "https://incdribble.atlassian.net/browse/TAL-69"
+  }
+ ],
+ "subjectTitle": "Issue a credit note from a sent invoice"
+}
