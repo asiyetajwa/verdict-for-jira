@@ -5,3 +5,6 @@ dist/
 *.log
 static/preview/
 .forge-production/
+film/node_modules/
+film/out/
+film/public/voiceover/*/takes/

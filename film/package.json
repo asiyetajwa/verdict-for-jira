@@ -1,0 +1,9 @@
+{
+  "name": "@verdict/film",
+  "private": true,
+  "type": "module",
+  "description": "The Verdict for Jira film (Remotion), built from screens rendered with receipts captured on the live site",
+  "scripts": { "studio": "remotion studio src/index.ts", "voiceover": "node scripts/voiceover.mjs verdict", "render": "node scripts/render.mjs Verdict" },
+  "dependencies": { "@remotion/cli": "4.0.536", "react": "19.1.1", "react-dom": "19.1.1", "remotion": "4.0.536" },
+  "devDependencies": { "@types/react": "19.1.12", "typescript": "5.9.2" }
+}
