@@ -7,6 +7,8 @@ import Resolver from '@forge/resolver';
 import { signOutcome, verifyChain, verifyReceipt } from './core/receipt';
 import type { GraphScope } from './forge/graph';
 import { latestFor, logFor, saveReceipt, signingKeys } from './forge/store';
+import { evaluateOne } from './forge/admin';
+import { consumer, enqueue, jobState } from './forge/jobs';
 import { contextForAgent, runWithModel, submitFromAgent, type CiteView } from './forge/verdict';
 
 // ---------- Rovo actions ----------
@@ -60,9 +62,10 @@ const resolver = new Resolver();
 
 async function stateFor(issueKey: string) {
   const latest = await latestFor(issueKey);
-  if (!latest) return { issueKey, receipt: null };
+  const job = await jobState(issueKey);
+  if (!latest) return { issueKey, receipt: null, job };
   const view = await kvs.get<{ cites: CiteView[]; subjectTitle: string }>(`view:${latest.receipt.hash}`);
-  return { issueKey, receipt: latest.receipt, check: await verifyReceipt(latest.receipt), cites: view?.cites ?? [], subjectTitle: view?.subjectTitle ?? issueKey };
+  return { issueKey, job, receipt: latest.receipt, check: await verifyReceipt(latest.receipt), cites: view?.cites ?? [], subjectTitle: view?.subjectTitle ?? issueKey };
 }
 
 resolver.define('getState', async ({ context }) => {
@@ -74,7 +77,7 @@ resolver.define('run', async ({ context }) => {
   const c = context as ReqCtx;
   const key = String(c.extension?.issue?.key ?? '');
   try {
-    await runWithModel(key, scopeFrom(c.cloudId, c.extension?.issue?.id));
+    await enqueue({ type: 'run', issueKey: key, graph: scopeFrom(c.cloudId, c.extension?.issue?.id) });
     return { ok: true, state: await stateFor(key) };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
@@ -115,5 +118,14 @@ export async function onIssueUpdated(event: UpdatedEvent): Promise<void> {
   const key = event.issue?.key;
   if (!added || !key) return;
   // A trigger runs without a user, so the Teamwork Graph (user-only) is recorded as unavailable on the receipt.
-  await runWithModel(key, null);
+  await enqueue({ type: 'run', issueKey: key, graph: null });
 }
+
+// ---------- Queue consumer: the long work ----------
+export const worker = consumer({
+  run: async (key, graph) => (await runWithModel(key, graph)).result.receipt.hash,
+  evaluate: evaluateOne,
+});
+
+// ---------- Development-only admin web trigger (seed, single run, evaluation); refuses unless VERDICT_ADMIN=on ----------
+export { adminTrigger } from './forge/admin';

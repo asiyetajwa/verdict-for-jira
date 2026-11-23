@@ -36,3 +36,6 @@ export const modelDecider: Decider = async (ctx, floor, feedback) => {
   });
   return parseProposal(textOf(res.choices[0]?.message.content));
 };
+
+/** The model id in use, for evaluation records only (public copy says "the model"). */
+export const modelInUse = (): Promise<string> => pickModel();

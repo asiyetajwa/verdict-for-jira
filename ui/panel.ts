@@ -11,7 +11,8 @@ type Receipt = {
   publicKey: string;
   outcome?: { body: { outcome: 'accepted' | 'rejected'; by: string; at: string; note?: string } };
 };
-type State = { issueKey: string; receipt: Receipt | null; check?: { valid: boolean; reason: string }; cites?: Cite[]; subjectTitle?: string };
+type Job = { state: 'queued' | 'running' | 'done' | 'failed'; at: string; error?: string; receiptHash?: string };
+type State = { issueKey: string; job?: Job | null; receipt: Receipt | null; check?: { valid: boolean; reason: string }; cites?: Cite[]; subjectTitle?: string };
 
 const root = document.getElementById('root') as HTMLElement;
 let busy = false;
@@ -86,14 +87,41 @@ function render(state: State, error?: string) {
 
 let current: State = { issueKey: '', receipt: null };
 
+const pending = (st: State) => st.job?.state === 'queued' || st.job?.state === 'running';
+
+function showWorking() {
+  root.querySelectorAll('button.primary').forEach((b) => {
+    (b as HTMLButtonElement).disabled = true;
+    b.replaceChildren(h('span', { class: 'spin' }), current.job?.state === 'running' ? ' Reading the issue and its links' : ' Queued');
+  });
+}
+
+async function poll() {
+  const started = Date.now();
+  while (Date.now() - started < 240000) {
+    await new Promise((r) => setTimeout(r, 3000));
+    current = await call<State>('getState');
+    if (!pending(current)) break;
+    render(current);
+    showWorking();
+  }
+  busy = false;
+  render(current, current.job?.state === 'failed' ? `Verdict could not finish: ${current.job.error ?? 'unknown error'}` : undefined);
+}
+
 async function run() {
   if (busy) return;
   busy = true;
-  root.querySelectorAll('button.primary').forEach((b) => { (b as HTMLButtonElement).disabled = true; b.replaceChildren(h('span', { class: 'spin' }), ' Reading the issue'); });
+  showWorking();
   const res = await call<{ ok: boolean; state?: State; error?: string }>('run');
-  busy = false;
-  if (res.ok && res.state) current = res.state;
-  render(current, res.ok ? undefined : res.error);
+  if (!res.ok) {
+    busy = false;
+    render(current, res.error);
+    return;
+  }
+  if (res.state) current = res.state;
+  showWorking();
+  await poll();
 }
 
 async function record(outcome: 'accepted' | 'rejected') {
@@ -106,5 +134,10 @@ async function main() {
   root.replaceChildren(h('div', { class: 'glass' }, h('div', { class: 'tile empty' }, h('span', { class: 'spin' }))));
   current = await call<State>('getState');
   render(current);
+  if (pending(current)) {
+    busy = true;
+    showWorking();
+    await poll();
+  }
 }
 void main();

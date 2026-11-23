@@ -62,6 +62,14 @@ export const HISTORY: SeedIssue[] = [
   { key: 'TAL-30', summary: 'Mark an invoice as paid manually', description: 'Record a payment received outside the app.', status: 'Done', resolution: 'Done' },
   { key: 'TAL-31', summary: 'Slack notification when an invoice is paid', description: 'Post to a Slack channel when a customer pays.', status: 'Done', resolution: 'Done' },
   { key: 'TAL-32', summary: 'Duplicate an existing invoice', description: 'Copy an invoice into a new draft.', status: "Done", resolution: "Won't Do" },
+  { key: 'TAL-33', summary: 'Upgrade the web framework to the latest major version', description: 'Move the web app to the current major release and fix deprecations.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-34', summary: 'Favicon and app icons', description: 'Ship the new favicon and touch icons.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-35', summary: 'Nightly database backups', description: 'Back up the database every night and keep thirty days.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-36', summary: 'Error tracking for the API', description: 'Report unhandled API errors with request ids.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-37', summary: 'Public status page for outages', description: 'A status page that shows incidents and planned maintenance.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-38', summary: 'Health check endpoint', description: 'An endpoint the load balancer can poll.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-39', summary: 'Terms of service page', description: 'Publish the terms of service and link them from sign-up.', status: 'Done', resolution: 'Done' },
+  { key: 'TAL-40', summary: 'Rate card for support plans', description: 'Show the support plan prices on the pricing page.', status: 'Done', resolution: 'Done' },
 ];
 
 // ---------------------------------------------------------------- Confluence decision pages

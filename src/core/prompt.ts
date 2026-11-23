@@ -13,7 +13,7 @@ Rules you must follow:
 - Pick exactly one call from the allowed list you are given. The allowed list comes from facts checked in code; a call outside it will be refused.
 - Every reason cites a real object from the context, by kind and id. Never invent an object, an issue key, a page or a pull request.
 - Say in one or two plain sentences why. Then give the one or two facts that would change the call.
-- Write for a busy engineer: plain English, no hedging, no em dashes.`;
+- Write for a busy engineer: plain English, no hedging, no em dashes. In prose, name calls as Duplicate, Ready to Build, Blocked or Risky, never in capitals.`;
 
 const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n)}...` : s);
 
