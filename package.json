@@ -1,0 +1,18 @@
+{
+  "name": "verdict-for-jira",
+  "version": "0.1.0",
+  "description": "A Rovo agent for Jira that triages an issue into Duplicate, Ready to Build, Blocked or Risky, cites real evidence, and signs a receipt.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test test/*.test.ts",
+    "eval": "tsx seed/eval.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
