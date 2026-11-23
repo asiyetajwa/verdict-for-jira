@@ -1,0 +1,101 @@
+modules:
+  rovo:agent:
+    - key: verdict-agent
+      name: Verdict
+      description: Triages a Jira issue into Duplicate, Ready to Build, Blocked or Risky, cites real evidence, and signs a receipt.
+      icon: resource:static;icon.svg
+      prompt: resource:prompts;agent.md
+      conversationStarters:
+        - Give this issue a verdict
+        - Is this issue ready to build?
+        - Is this a duplicate of something we already have?
+      followUpPrompt: Offer to run Verdict on another issue in the same project.
+      actions:
+        - get-verdict-context
+        - submit-verdict
+  action:
+    - key: get-verdict-context
+      name: Get verdict context
+      function: get-context-fn
+      actionVerb: GET
+      description: Reads a Jira issue with its links, blockers two deep, linked Confluence pages, linked pull requests and similar issues, checks the facts in code, and returns them with the list of verdicts the facts allow.
+      inputs:
+        issueKey:
+          title: Issue key
+          type: string
+          required: false
+          description: The Jira issue key, for example PROJ-42. Leave empty to use the issue the user is viewing.
+    - key: submit-verdict
+      name: Submit verdict
+      function: submit-fn
+      actionVerb: CREATE
+      description: Submits a verdict for a Jira issue. Verdict checks every citation; if the check passes it signs a receipt and posts the verdict as a comment, otherwise it returns what failed so the proposal can be fixed once.
+      inputs:
+        issueKey:
+          title: Issue key
+          type: string
+          required: false
+          description: The Jira issue key, for example PROJ-42.
+        proposal:
+          title: Proposal
+          type: string
+          required: true
+          description: 'The verdict as JSON: {"verdict":"DUPLICATE|READY|BLOCKED|RISKY","why":"...","evidence":[{"claim":"...","cite":{"kind":"issue|page|pr","id":"..."},"asserts":"open|done|blocker|duplicate|reverted|decision|mentioned"}],"wouldChange":["..."]}'
+  jira:issuePanel:
+    - key: verdict-panel
+      resource: panel
+      resolver:
+        function: ui-fn
+      title: Verdict
+      icon: resource:static;icon.svg
+  jira:projectPage:
+    - key: verdict-log
+      resource: log
+      resolver:
+        function: ui-fn
+      title: Verdict Log
+      icon: resource:static;icon.svg
+  llm:
+    - key: verdict-llm
+      model:
+        - claude
+  trigger:
+    - key: verdict-label-trigger
+      function: label-fn
+      events:
+        - avi:jira:updated:issue
+  function:
+    - key: get-context-fn
+      handler: index.getVerdictContext
+    - key: submit-fn
+      handler: index.submitVerdict
+    - key: ui-fn
+      handler: index.ui
+    - key: label-fn
+      handler: index.onIssueUpdated
+resources:
+  - key: panel
+    path: static/build/panel
+  - key: log
+    path: static/build/log
+  - key: static
+    path: static/assets
+  - key: prompts
+    path: prompts
+app:
+  id: ari:cloud:ecosystem::app/00000000-0000-0000-0000-000000000000
+  runtime:
+    name: nodejs22.x
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - read:jira-user
+    - storage:app
+    - read:page:confluence
+    - read:graph:issue:jira
+    - read:graph:pull-request:external
+    - read:graph:page:confluence
+  content:
+    styles:
+      - unsafe-inline

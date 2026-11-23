@@ -43,7 +43,7 @@ export const rulesDecider: Decider = async (ctx, floor) => {
 };
 
 /** Builds the fallback when two proposals fail the check: Risky, naming what could not be verified. */
-function fallback(ctx: Context, failures: string[]): Proposal {
+export function fallback(ctx: Context, failures: string[]): Proposal {
   // The failures may quote keys the decider invented; the fallback must not repeat them as if they were real.
   const known = new Set(Object.values(ctx.objects).map((o) => o.id));
   const safe = failures.slice(0, 3).map((f) => f.replace(/\b[A-Z][A-Z0-9]{1,9}-\d+\b/g, (k) => (known.has(k) ? k : 'an issue Verdict could not find')));

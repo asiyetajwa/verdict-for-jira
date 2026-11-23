@@ -79,7 +79,8 @@ export function computeFloor(ctx: Context): Floor {
     if (!duplicateOf && hit.score >= DUPLICATE_AT) {
       duplicateOf = issueRef(hit.id);
       facts.push({ code: 'duplicate', text: `${hit.id} covers the same work (similarity ${hit.score.toFixed(2)}; shared: ${hit.shared.slice(0, 4).join(', ')}).`, cites: [duplicateOf] });
-    } else if (hit.score >= NEAR_DUPLICATE_AT && (!duplicateOf || duplicateOf.id !== hit.id)) {
+    } else if (hit.score >= NEAR_DUPLICATE_AT && o.resolution !== 'Reverted' && (!duplicateOf || duplicateOf.id !== hit.id)) {
+      // A reverted match is reported once, as a reverted precedent below, not also as an overlap.
       facts.push({ code: 'near-duplicate', text: `${hit.id} overlaps in part (similarity ${hit.score.toFixed(2)}).`, cites: [issueRef(hit.id)] });
     }
   }

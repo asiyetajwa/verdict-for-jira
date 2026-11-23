@@ -138,3 +138,30 @@ test('rules baseline: graph context beats issue text alone, and every citation r
   assert.equal(full.citationResolution, 1);
   assert.ok(full.rows.every((r) => !r.fellBack));
 });
+
+// ---- the agent's submit-and-retry path ----
+import { submitProposal, type Store } from '../src/core/run';
+
+function memoryStore(): Store & { chain: import('../src/core/receipt').SignedReceipt[] } {
+  const chain: import('../src/core/receipt').SignedReceipt[] = [];
+  return { chain, head: async () => chain.at(-1)?.hash ?? null, append: async (_p, r) => { chain.push(r); } };
+}
+
+test('the agent path refuses once, then posts the Risky fallback, and chains receipts', async () => {
+  const k = await generateKeys();
+  const keys = await importKeys(k.pkcs8, k.publicRaw);
+  const store = memoryStore();
+  const ctx = seedContext('TAL-51');
+  const bad = { verdict: 'READY' as const, why: 'Looks fine.', evidence: [{ claim: 'ok', cite: { kind: 'issue' as const, id: 'TAL-51' }, asserts: 'mentioned' as const }], wouldChange: [] };
+  const first = await submitProposal(ctx, 'TAL', bad, 1, 'agent', keys, store);
+  assert.equal(first.status, 'refused');
+  assert.equal(store.chain.length, 0);
+  const second = await submitProposal(ctx, 'TAL', bad, 2, 'agent', keys, store);
+  assert.equal(second.status, 'posted');
+  if (second.status === 'posted') assert.equal(second.receipt.body.verdict, 'RISKY');
+  const good = await rulesDecider(ctx, computeFloor(ctx), []);
+  await submitProposal(ctx, 'TAL', good, 1, 'agent', keys, store);
+  assert.equal(store.chain.length, 2);
+  assert.equal((await verifyChain(store.chain)).valid, true);
+  assert.equal(store.chain[1]?.body.verdict, 'BLOCKED');
+});
