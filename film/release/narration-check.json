@@ -1,7 +1,7 @@
 {
   "words": {
-    "script": 498,
-    "heard": 498,
+    "script": 507,
+    "heard": 507,
     "distance": 0
   },
   "diffs": [],
@@ -9,20 +9,17 @@
   "pausesOver": {
     "limit": 1.2,
     "list": [
-      "1.30s after \"it\" at 5.3s, before \"sometimes\"",
-      "1.50s after \"review\" at 14.3s, before \"sometimes\"",
-      "1.24s after \"them\" at 36.5s, before \"an\"",
-      "1.44s after \"check\" at 46.2s, before \"so\"",
-      "1.36s after \"matched\" at 103.7s, before \"nothing\"",
-      "1.30s after \"risky\" at 120.9s, before \"each\"",
-      "1.22s after \"verdict\" at 134.1s, before \"the\"",
-      "1.28s after \"atlassian\" at 169.4s, before \"verdict\""
+      "1.30s after \"check\" at 45.4s, before \"so\"",
+      "1.36s after \"matched\" at 104.0s, before \"nothing\"",
+      "1.30s after \"risky\" at 121.2s, before \"each\"",
+      "1.20s after \"verdict\" at 134.5s, before \"the\"",
+      "1.30s after \"atlassian\" at 169.7s, before \"verdict\""
     ]
   },
   "pauseSpread": {
-    "count": 74,
-    "median": 0.5800000000000018,
-    "max": 1.5
+    "count": 75,
+    "median": 0.5600000000000023,
+    "max": 1.3599999999999994
   },
-  "transcript": "Every sprint starts with someone picking up a ticket. Almost nobody checks what is sitting around it. Sometimes the same work is already in the backlog, written in completely different words. Two people build it, and one of them finds out in code review. Sometimes a ticket looks ready, but it is waiting on a service that is waiting on something else. The block is two links away, so nobody sees it until the work stalls. And sometimes the ticket goes against a decision the team already made on a page that nobody opens. This one asks to store card numbers. The decision says we never store them. An assistant could summarize all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check. So we built Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked, or risky. Every reason is cited, checked, and signed. Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table. Here it follows the chain. The push notification ticket is blocked by the push service, which is still waiting on the Apple developer account. Both links are cited and both are real. Here it reads the decision page. Storing card numbers would break a final decision from security and payments, so the call is risky and the page is named. And here it sees past the wording. Lost payment events are the same work as the webhook retry ticket, so the call is duplicate with the acceptance criteria matched. Nothing posts until every citation passes a check. The object has to exist, and what the verdict says about it has to be true. A made-up ticket is refused. The model gets one retry, and if it still cannot prove its case, the call drops to risky. Each verdict ends with a cryptographically signed receipt. Change a single word and it no longer verifies. When someone on the team accepts or rejects the call, that is signed too and tied to the verdict. The verdict log chains every receipt in the project together. Take one out and the chain breaks. We tested it on forty issues with known answers through the app itself. With the full context, the model got thirty-four right. With the issue text alone, it got fifteen. Rules on their own got twenty-six. Every one of its ninety-six citations checked out, and it never called a false duplicate. Ask the Verdict agent in Rovo, press Run Verdict in the issue panel, or add the label Verdict to any issue. It is built on Forge and it runs on Atlassian. Verdict for Jira. Know what you are building before you build it. [outro jingle]"
+  "transcript": "We kept running into the same problem in Jira. Every sprint, someone picked up a ticket and almost nobody checked what was sitting around it. We had the same work in our backlog twice, written in completely different words. It got built twice, and we only found out in code review. We picked up tickets that looked ready, but they were waiting on a service that was waiting on something else. The block was two links away, so we only saw it when the work stalled. And we started tickets that went against decisions we had already made, written on pages nobody opened again, like this one, which asks to store card numbers when our decision says we never store them. We tried asking an assistant. It sounded just as sure when it was wrong, and it gave us nothing we could check. So we built the tool we wanted, Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked, or risky. Every reason is cited, checked, and signed. Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table. Here it follows the chain. The push notification ticket is blocked by the push service, which is still waiting on the Apple Developer account. Both links are cited and both are real. Here it reads the decision page. Storing card numbers would break a final decision from security and payments. So the call is risky and the page is named. And here it sees past the wording. Lost payment events are the same work as the webhook retry ticket, so the call is duplicate with the acceptance criteria matched. Nothing posts until every citation passes a check. The object has to exist, and what the verdict says about it has to be true. A made-up ticket is refused. The model gets one retry, and if it still cannot prove its case, the call drops to risky. Each verdict ends with a cryptographically signed receipt. Change a single word and it no longer verifies. When someone on the team accepts or rejects the call, that is signed too and tied to the verdict. The verdict log chains every receipt in the project together. Take one out and the chain breaks. We tested it on forty issues with known answers through the app itself. With the full context, the model got thirty-four right. With the issue text alone, it got fifteen. Rules on their own got twenty-six. Every one of its ninety-six citations checked out, and it never called a false duplicate. Ask the Verdict agent in Rovo, press Run Verdict in the issue panel, or add the label Verdict to any issue. It is built on Forge and it runs on Atlassian. Verdict for Jira. Know what you are building before you build it. [outro jingle]"
 }
