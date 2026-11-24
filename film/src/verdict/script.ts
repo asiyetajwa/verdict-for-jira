@@ -1,4 +1,5 @@
-// Verdict for Jira, the Codegeist 2026 film. The problem first (what slips through triage today), then the product.
+// Verdict for Jira, the Codegeist 2026 film. The problem first, told as our own (we kept hitting it in Jira, so we
+// built Verdict), then the product answering each part of it.
 // Copy rules: the product is Verdict for Jira, the model is never named, no em dashes, and every number and verdict on
 // screen comes from the live site: the screens are the real panel rendered from receipts in film/fixtures, and the
 // numbers are eval/results.json. Voiceover: node scripts/voiceover.mjs verdict (one clip per scene).
@@ -11,12 +12,12 @@ export type SceneId =
   | 'check' | 'receipt' | 'log' | 'numbers' | 'where' | 'close';
 
 export const SCENES: SceneSpec<SceneId>[] = [
-  { id: 'hook', voiceover: 'Every sprint starts with someone picking up a ticket. Almost nobody checks what is sitting around it.', minSeconds: 3 },
-  { id: 'twice', voiceover: 'Sometimes the same work is already in the backlog, written in completely different words. Two people build it, and one of them finds out in code review.', minSeconds: 3 },
-  { id: 'chain', voiceover: 'Sometimes a ticket looks ready, but it is waiting on a service that is waiting on something else. The block is two links away, so nobody sees it until the work stalls.', minSeconds: 3 },
-  { id: 'decision', voiceover: 'And sometimes the ticket goes against a decision the team already made, on a page that nobody opens. This one asks to store card numbers. The decision says we never store them.', minSeconds: 3 },
-  { id: 'trust', voiceover: 'An assistant could summarise all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check.', minSeconds: 3 },
-  { id: 'title', voiceover: 'So we built Verdict for Jira. It makes one call on an issue: Duplicate, Ready to Build, Blocked, or Risky. Every reason is cited, checked, and signed.', minSeconds: 3 },
+  { id: 'hook', voiceover: 'We kept running into the same problem in Jira. Every sprint, someone picked up a ticket, and almost nobody checked what was sitting around it.', minSeconds: 3 },
+  { id: 'twice', voiceover: 'We had the same work in our backlog twice, written in completely different words. It got built twice, and we only found out in code review.', minSeconds: 3 },
+  { id: 'chain', voiceover: 'We picked up tickets that looked ready, but they were waiting on a service that was waiting on something else. The block was two links away, so we only saw it when the work stalled.', minSeconds: 3 },
+  { id: 'decision', voiceover: 'And we started tickets that went against decisions we had already made, written on pages nobody opened again. Like this one, which asks to store card numbers, when our decision says we never store them.', minSeconds: 3 },
+  { id: 'trust', voiceover: 'We tried asking an assistant. It sounded just as sure when it was wrong, and it gave us nothing we could check.', minSeconds: 3 },
+  { id: 'title', voiceover: 'So we built the tool we wanted: Verdict for Jira. It makes one call on an issue: Duplicate, Ready to Build, Blocked, or Risky. Every reason is cited, checked, and signed.', minSeconds: 3 },
   { id: 'reads', voiceover: 'Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table.', minSeconds: 3 },
   { id: 'blocked', voiceover: 'Here it follows the chain. The push notification ticket is Blocked by the push service, which is still waiting on the Apple developer account. Both links are cited, and both are real.', minSeconds: 3 },
   { id: 'risky', voiceover: 'Here it reads the decision page. Storing card numbers would break a final decision from Security and Payments, so the call is Risky, and the page is named.', minSeconds: 3 },

@@ -4,14 +4,16 @@ Verdict makes one call on a Jira issue: **Duplicate**, **Ready to Build**, **Blo
 
 Built on Atlassian Forge for Codegeist 2026 (Apps for Software Teams). It runs on Atlassian: the model is called through the Forge LLM API, and receipts live in Forge storage.
 
-## The problem
+## Why we built it
 
-Triage is where expensive mistakes start, and it is usually a glance at the ticket on its own:
+We kept hitting the same problem in Jira. Triage was a glance at the ticket on its own, and it kept costing us:
 
-- **The same work is already in the backlog, in different words.** Two people build it.
-- **The blocker is two links away.** The ticket looks ready, but it waits on a service that waits on something else.
-- **The ticket goes against a decision the team already made**, on a Confluence page nobody reread.
-- **An assistant's summary sounds just as sure when it is wrong**, and gives you nothing to check.
+- **The same work was already in our backlog, in different words.** It got built twice, and we found out in code review.
+- **The blocker was two links away.** The ticket looked ready, but it was waiting on a service that was waiting on something else.
+- **Tickets went against decisions we had already made**, written on Confluence pages nobody opened again.
+- **Asking an assistant did not fix it.** It sounded just as sure when it was wrong, and gave us nothing we could check.
+
+So we built the tool we wanted: one call per issue, every reason cited to something real, every citation checked, every verdict signed.
 
 ## What Verdict does
 

@@ -99,7 +99,7 @@ export const ChainScene: S = () => {
 
 export const DecisionScene: S = () => {
   const frame = useCurrentFrame();
-  const clash = fadeIn(frame, 150, 16);
+  const clash = fadeIn(frame, 270, 16);
   return (
     <AbsoluteFill>
       <Room dim={0.06} />
@@ -115,7 +115,7 @@ export const DecisionScene: S = () => {
         </div>
       </div>
       <div style={{ position: 'absolute', left: 735, top: 400, width: 345, height: 6, borderRadius: 3, background: theme.warn, opacity: clash, boxShadow: `0 0 20px ${theme.warn}`, transform: `scaleX(${String(clash)})`, transformOrigin: 'left' }} />
-      <Caption text="Against a decision nobody reread." at={160} style={{ position: 'absolute', bottom: 90, width: '100%', textAlign: 'center' }} />
+      <Caption text="Against a decision we already made." at={280} style={{ position: 'absolute', bottom: 90, width: '100%', textAlign: 'center' }} />
     </AbsoluteFill>
   );
 };
