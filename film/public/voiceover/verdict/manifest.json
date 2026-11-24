@@ -7,32 +7,32 @@
     {
       "id": "hook",
       "file": "voiceover/verdict/hook.mp3",
-      "seconds": 5.808594
+      "seconds": 7.662902
     },
     {
       "id": "twice",
       "file": "voiceover/verdict/twice.mp3",
-      "seconds": 8.595351
+      "seconds": 8.468866
     },
     {
       "id": "chain",
       "file": "voiceover/verdict/chain.mp3",
-      "seconds": 9.468231
+      "seconds": 9.491701
     },
     {
       "id": "decision",
       "file": "voiceover/verdict/decision.mp3",
-      "seconds": 11.288503
+      "seconds": 11.525692
     },
     {
       "id": "trust",
       "file": "voiceover/verdict/trust.mp3",
-      "seconds": 9.415102
+      "seconds": 6.381202
     },
     {
       "id": "title",
       "file": "voiceover/verdict/title.mp3",
-      "seconds": 10.02517
+      "seconds": 11.368526
     },
     {
       "id": "reads",

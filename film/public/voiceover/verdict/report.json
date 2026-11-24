@@ -1,417 +1,153 @@
 [
   {
     "id": "hook",
-    "script": "Every sprint starts with someone picking up a ticket. Almost nobody checks what is sitting around it.",
+    "script": "We kept running into the same problem in Jira. Every sprint, someone picked up a ticket, and almost nobody checked what was sitting around it.",
     "chosen": 1,
     "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 5.808594,
-        "heard": "Every sprint starts with someone picking up a ticket. Almost nobody checks what is sitting around it",
+        "seconds": 7.662902,
+        "heard": "We kept running into the same problem in Jira. Every sprint, someone picked up a ticket and almost nobody checked what was sitting around it",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.566961
+        "longestPause": 0.633265
       },
       {
         "take": 2,
-        "seconds": 6.087596,
-        "heard": "Every sprint starts with someone picking up a ticket. Almost nobody checks what is sitting around it",
+        "seconds": 7.78415,
+        "heard": "We kept running into the same problem in Jira. Every sprint, someone picked up a ticket and almost nobody checked what was sitting around it.",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.571791
+        "longestPause": 0.637279
       }
     ]
   },
   {
     "id": "twice",
-    "script": "Sometimes the same work is already in the backlog, written in completely different words. Two people build it, and one of them finds out in code review.",
+    "script": "We had the same work in our backlog twice, written in completely different words. It got built twice, and we only found out in code review.",
     "chosen": 2,
     "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 9.245147,
-        "heard": "Sometimes the same work is already in the backlog, written in completely different words. Two people build it, and one of them finds out in code review",
+        "seconds": 8.920068,
+        "heard": "We had the same work in our backlog twice, written in completely different words. It got built twice, and we only found out in code review",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.696735
+        "longestPause": 0.556463
       },
       {
         "take": 2,
-        "seconds": 8.595351,
-        "heard": "Sometimes the same work is already in the backlog, written in completely different words. Two people build it, and one of them finds out in code review",
+        "seconds": 8.468866,
+        "heard": "We had the same work in our backlog twice, written in completely different words. It got built twice, and we only found out in code review",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.670794
+        "longestPause": 0.508594
       }
     ]
   },
   {
     "id": "chain",
-    "script": "Sometimes a ticket looks ready, but it is waiting on a service that is waiting on something else. The block is two links away, so nobody sees it until the work stalls.",
+    "script": "We picked up tickets that looked ready, but they were waiting on a service that was waiting on something else. The block was two links away, so we only saw it when the work stalled.",
     "chosen": 2,
     "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 9.895306,
-        "heard": "Sometimes a ticket looks ready, but it is waiting on a service that is waiting on something else. The block is two links away, so nobody sees it until the work stalls",
+        "seconds": 8.928231,
+        "heard": "We picked up tickets that looked ready, but they were waiting on a service that was waiting on something else. The block was two links away, so we only saw it when the work stalled.",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.57322
+        "longestPause": 0.551383
       },
       {
         "take": 2,
-        "seconds": 9.468231,
-        "heard": "Sometimes a ticket looks ready, but it is waiting on a service that is waiting on something else. The block is two links away, so nobody sees it until the work stalls",
+        "seconds": 9.491701,
+        "heard": "We picked up tickets that looked ready, but they were waiting on a service that was waiting on something else. The block was two links away, so we only saw it when the work stalled",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.532245
+        "longestPause": 0.470816
       }
     ]
   },
   {
     "id": "decision",
-    "script": "And sometimes the ticket goes against a decision the team already made, on a page that nobody opens. This one asks to store card numbers. The decision says we never store them.",
-    "chosen": 1,
+    "script": "And we started tickets that went against decisions we had already made, written on pages nobody opened again. Like this one, which asks to store card numbers, when our decision says we never store them.",
+    "chosen": 3,
     "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 11.288503,
-        "heard": "And sometimes the ticket goes against a decision the team already made on a page that nobody opens. This one asks to store card numbers. The decision says we never store them",
+        "seconds": 12.421791,
+        "heard": "And we started tickets that went against decisions we had already made, written on pages nobody opened again. Like this one, which asks to store card numbers when our decision says we never store them",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.606009
+        "longestPause": 0.926712
       },
       {
         "take": 2,
-        "seconds": 11.399388,
-        "heard": "And sometimes the ticket goes against a decision the team already made on a page that nobody opens. This one asks to store card numbers. The decision says we never store them",
-        "distance": 0,
+        "seconds": 11.766032,
+        "heard": "And we started tickets that went against decisions we had already made, written on pages nobody opened again. Like this one, which asked to store card numbers when our decision says we never store them",
+        "distance": 1,
         "repeated": [],
-        "longestPause": 0.932313
+        "longestPause": 0.533424
       },
       {
         "take": 3,
-        "seconds": 10.05644,
-        "heard": "And sometimes a ticket goes against a decision the team already made on a page that nobody opens. This one asks to store card numbers. The decision says we never store them",
-        "distance": 1,
+        "seconds": 11.525692,
+        "heard": "And we started tickets that went against decisions we had already made, written on pages nobody opened again, like this one, which asks to store card numbers when our decision says we never store them",
+        "distance": 0,
         "repeated": [],
-        "longestPause": 0.486281
+        "longestPause": 0.466032
       }
     ]
   },
   {
     "id": "trust",
-    "script": "An assistant could summarise all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check.",
-    "chosen": 3,
-    "clean": false,
+    "script": "We tried asking an assistant. It sounded just as sure when it was wrong, and it gave us nothing we could check.",
+    "chosen": 2,
+    "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 9.277188,
-        "heard": "An assistant could summarize all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check",
-        "distance": 1,
+        "seconds": 6.412313,
+        "heard": "We tried asking an assistant. It sounded just as sure when it was wrong, and it gave us nothing we could check",
+        "distance": 0,
         "repeated": [],
-        "longestPause": 0.733537
+        "longestPause": 0.583651
       },
       {
         "take": 2,
-        "seconds": 9.523787,
-        "heard": "An assistant could summarize all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check",
-        "distance": 1,
+        "seconds": 6.381202,
+        "heard": "We tried asking an assistant. It sounded just as sure when it was wrong, and it gave us nothing we could check",
+        "distance": 0,
         "repeated": [],
-        "longestPause": 0.837483
-      },
-      {
-        "take": 3,
-        "seconds": 9.415102,
-        "heard": "An assistant could summarize all of this for you. The trouble is that it sounds just as sure when it is wrong, and it gives you nothing you can check",
-        "distance": 1,
-        "repeated": [],
-        "longestPause": 0.668639
+        "longestPause": 0.559615
       }
     ]
   },
   {
     "id": "title",
-    "script": "So we built Verdict for Jira. It makes one call on an issue: Duplicate, Ready to Build, Blocked, or Risky. Every reason is cited, checked, and signed.",
-    "chosen": 1,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 10.02517,
-        "heard": "So we built Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked, or risky. Every reason is cited, checked, and signed",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.538889
-      },
-      {
-        "take": 2,
-        "seconds": 10.963424,
-        "heard": "So we built Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked or risky. Every reason is cited, checked, and signed",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.565556
-      }
-    ]
-  },
-  {
-    "id": "reads",
-    "script": "Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table.",
+    "script": "So we built the tool we wanted: Verdict for Jira. It makes one call on an issue: Duplicate, Ready to Build, Blocked, or Risky. Every reason is cited, checked, and signed.",
     "chosen": 2,
     "clean": true,
     "takes": [
       {
         "take": 1,
-        "seconds": 14.943356,
-        "heard": "Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table",
+        "seconds": 12.495941,
+        "heard": "So we built the tool we wanted, Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked, or risky. Every reason is cited, checked, and signed",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.884694
+        "longestPause": 0.674512
       },
       {
         "take": 2,
-        "seconds": 15.252063,
-        "heard": "Verdict reads the issue, its links, the blockers behind its blockers, the Confluence pages it points to, and similar issues in the project. Before the model says a word, the facts are checked in code, and only the calls those facts allow are on the table",
+        "seconds": 11.368526,
+        "heard": "So we built the tool we wanted, Verdict for Jira. It makes one call on an issue: duplicate, ready to build, blocked, or risky. Every reason is cited, checked, and signed",
         "distance": 0,
         "repeated": [],
-        "longestPause": 0.676417
-      }
-    ]
-  },
-  {
-    "id": "blocked",
-    "script": "Here it follows the chain. The push notification ticket is Blocked by the push service, which is still waiting on the Apple developer account. Both links are cited, and both are real.",
-    "chosen": 3,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 10.538299,
-        "heard": "Here it follows the chain. The push notification ticket is blocked by the push service, which is still waiting on the Apple developer account. Both links are cited and both are real",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.629705
-      },
-      {
-        "take": 2,
-        "seconds": 10.905737,
-        "heard": "Here it follows the chain. The push notification ticket is blocked by the push service, which is still waiting on the Apple Developer account. Both links are cited and both are real",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.938844
-      },
-      {
-        "take": 3,
-        "seconds": 9.75356,
-        "heard": "Here it follows the chain. The push notification ticket is blocked by the push service, which is still waiting on the Apple developer account. Both links are cited and both are real",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.625986
-      }
-    ]
-  },
-  {
-    "id": "risky",
-    "script": "Here it reads the decision page. Storing card numbers would break a final decision from Security and Payments, so the call is Risky, and the page is named.",
-    "chosen": 1,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 8.753832,
-        "heard": "Here it reads the decision page. Storing card numbers would break a final decision from security and payments. So the call is risky and the page is named",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.46449
-      },
-      {
-        "take": 2,
-        "seconds": 8.950249,
-        "heard": "Here it reads the decision page. Storing card numbers would break a final decision from security and payments, so the call is risky and the page is named",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.538617
-      }
-    ]
-  },
-  {
-    "id": "duplicate",
-    "script": "And here it sees past the wording. Lost payment events are the same work as the webhook retry ticket, so the call is Duplicate, with the acceptance criteria matched.",
-    "chosen": 2,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 9.915488,
-        "heard": "And here it sees past the wording. Lost payment events are the same work as the webhook retry ticket, so the call is duplicate with the acceptance criteria matched",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.685488
-      },
-      {
-        "take": 2,
-        "seconds": 10.685147,
-        "heard": "And here it sees past the wording. Lost payment events are the same work as the webhook retry ticket, so the call is duplicate with the acceptance criteria matched",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.676553
-      }
-    ]
-  },
-  {
-    "id": "check",
-    "script": "Nothing posts until every citation passes a check. The object has to exist, and what the verdict says about it has to be true. A made up ticket is refused. The model gets one retry, and if it still cannot prove its case, the call drops to Risky.",
-    "chosen": 2,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 16.067483,
-        "heard": "Nothing posts until every citation passes a check. The object has to exist, and what the verdict says about it has to be true. A made-up ticket is refused. The model gets one retry, and if it still cannot prove its case, the call drops to risky",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.684762
-      },
-      {
-        "take": 2,
-        "seconds": 16.629093,
-        "heard": "Nothing posts until every citation passes a check. The object has to exist, and what the verdict says about it has to be true. A made-up ticket is refused. The model gets one retry, and if it still cannot prove its case, the call drops to Risky",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.64873
-      }
-    ]
-  },
-  {
-    "id": "receipt",
-    "script": "Each verdict ends with a cryptographically signed receipt. Change a single word, and it no longer verifies. When someone on the team accepts or rejects the call, that is signed too, and tied to the verdict.",
-    "chosen": 2,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 11.969365,
-        "heard": "Each verdict ends with a cryptographically signed receipt. Change a single word, and it no longer verifies. When someone on the team accepts or rejects the call, that is signed too and tied to the verdict",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.800522
-      },
-      {
-        "take": 2,
-        "seconds": 12.588821,
-        "heard": "Each verdict ends with a cryptographically signed receipt. Change a single word and it no longer verifies. When someone on the team accepts or rejects the call, that is signed too and tied to the verdict",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.619887
-      }
-    ]
-  },
-  {
-    "id": "log",
-    "script": "The Verdict Log chains every receipt in the project together. Take one out, and the chain breaks.",
-    "chosen": 1,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 5.319796,
-        "heard": "The verdict log chains every receipt in the project together. Take one out and the chain breaks",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.550385
-      },
-      {
-        "take": 2,
-        "seconds": 6.014467,
-        "heard": "The vertic log chains every receipt in the project together. Take one out and the chain breaks",
-        "distance": 1,
-        "repeated": [],
-        "longestPause": 0.518163
-      },
-      {
-        "take": 3,
-        "seconds": 6.180113,
-        "heard": "The Verdig log chains every receipt in the project together. Take one out and the chain breaks",
-        "distance": 1,
-        "repeated": [],
-        "longestPause": 0.489977
-      }
-    ]
-  },
-  {
-    "id": "numbers",
-    "script": "We tested it on forty issues with known answers, through the app itself. With the full context, the model got thirty four right. With the issue text alone, it got fifteen. Rules on their own got twenty six. Every one of its ninety six citations checked out, and it never called a false duplicate.",
-    "chosen": 2,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 18.273605,
-        "heard": "We tested it on forty issues with known answers through the app itself. With the full context, the model got thirty-four right. With the issue text alone, it got fifteen. Rules on their own got twenty-six. Every one of its ninety-six citations checked out, and it never called a false duplicate",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.798957
-      },
-      {
-        "take": 2,
-        "seconds": 18.365714,
-        "heard": "We tested it on forty issues with known answers through the app itself. With the full context, the model got thirty-four right. With the issue text alone, it got fifteen. Rules on their own got twenty-six. Every one of its ninety-six citations checked out, and it never called a false duplicate",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.744059
-      }
-    ]
-  },
-  {
-    "id": "where",
-    "script": "Ask the Verdict agent in Rovo, press Run Verdict in the issue panel, or add the label verdict to any issue. It is built on Forge, and it runs on Atlassian.",
-    "chosen": 1,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 9.941746,
-        "heard": "Ask the Verdict agent in Rovo, press Run Verdict in the issue panel, or add the label Verdict to any issue. It is built on Forge and it runs on Atlassian",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.575986
-      },
-      {
-        "take": 2,
-        "seconds": 10.452585,
-        "heard": "Ask the Verdict agent in Rovo, press Run Verdict in the issue panel, or add the label Verdict to any issue. It is built on Forge and it runs on Atlassian",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.643424
-      }
-    ]
-  },
-  {
-    "id": "close",
-    "script": "Verdict for Jira. Know what you are building, before you build it.",
-    "chosen": 1,
-    "clean": true,
-    "takes": [
-      {
-        "take": 1,
-        "seconds": 3.128073,
-        "heard": "Verdict for Jira: know what you are building before you build it",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.330522
-      },
-      {
-        "take": 2,
-        "seconds": 3.472336,
-        "heard": "Verdict for Jira: know what you are building before you build it",
-        "distance": 0,
-        "repeated": [],
-        "longestPause": 0.592404
+        "longestPause": 0.652653
       }
     ]
   }
